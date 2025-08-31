@@ -53,7 +53,7 @@ const Services = () => {
                 className="bg-white rounded-3xl shadow-lg p-8 text-center hover:shadow-2xl transition-all flex flex-col items-center"
               >
                 <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-50 mb-6">
-                  <Icon className="w-8 h-8 text-orange-300" />
+                  <Icon className="w-8 h-8 text-orange-400" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">
                   {item.title}
