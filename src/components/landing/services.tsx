@@ -35,7 +35,7 @@ const Services = () => {
   return (
     <section className="bg-gray-50 min-h-screen flex items-center justify-center px-6 py-20">
       <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-orange-500">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">
           Our Principles
         </h2>
 
@@ -45,19 +45,22 @@ const Services = () => {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.6, delay: index * 0.2, type: "spring" }}
                 viewport={{ once: true }}
-                className="bg-white rounded-3xl shadow-lg p-8 text-center hover:shadow-2xl transition-shadow flex flex-col items-center"
+                className="bg-white rounded-3xl shadow-lg p-8 text-center hover:shadow-2xl transition-all flex flex-col items-center"
               >
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-orange-100 mb-6">
-                  <Icon className="w-8 h-8 text-orange-500" />
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-50 mb-6">
+                  <Icon className="w-8 h-8 text-orange-300" />
                 </div>
-                <h3 className="text-2xl font-semibold text-orange-500 mb-4">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">
                   {item.title}
                 </h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             )
           })}
