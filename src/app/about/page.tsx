@@ -121,40 +121,48 @@ const AboutSection = () => {
         </div>
 
         {/* Coach Section */}
-        <div className="bg-gray-100 p-10 rounded-2xl shadow-lg">
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-            Meet Our Head Coach
-          </h3>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="relative w-48 h-48 rounded-full overflow-hidden shadow-lg">
-              <Image
-                src="/images/pro.png" 
-                alt="Head Coach"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h4 className="text-xl font-semibold text-orange-600 mb-2">
-                Coach Isaac Gachiri Njoroge
-              </h4>
-              <p className="text-gray-700 leading-relaxed">
-                Coach Isaac Gachiri Njoroge is the founder and head trainer of DagoPride
-                Academy. With years of experience in player development, he has
-                dedicated his career to nurturing the next generation of
-                basketball talent. His coaching philosophy blends technical
-                skills with discipline, teamwork, and character-building,
-                ensuring that every player grows both as an athlete and as an
-                individual.
-              </p>
-              <p className="mt-4 text-gray-700 leading-relaxed">
-                Under his leadership, players are guided through intensive skill
-                camps, mentorship sessions, and competitive opportunities that
-                prepare them for national and international platforms.
-              </p>
+        <section className="relative bg-gradient-to-r from-white via-gray-50 to-orange-50 py-16 px-6 md:px-12">
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
+              Meet Our Head Coach
+            </h3>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-10 bg-white rounded-2xl shadow-xl p-8 md:p-12">
+              {/* Coach Image */}
+              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg border-4 border-orange-500">
+                <Image
+                  src="/images/pro.png"
+                  alt="Head Coach"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Coach Bio */}
+              <div className="flex-1">
+                <h4 className="text-2xl md:text-3xl font-bold text-orange-600 mb-4">
+                  Coach Isaac Gachiri Njoroge
+                </h4>
+                <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                  Coach Isaac Gachiri Njoroge is the founder and head trainer of
+                  <span className="font-semibold"> DagoPride Academy</span>. With years of
+                  experience in player development, he has dedicated his career to
+                  nurturing the next generation of basketball talent.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-lg mb-4">
+                  His coaching philosophy blends technical skills with discipline,
+                  teamwork, and character-building, ensuring that every player grows
+                  both as an athlete and as an individual.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  Under his leadership, players participate in intensive skill camps,
+                  mentorship sessions, and competitive opportunities that prepare them
+                  for both national and international platforms.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
       </div>
     </section>
   )
