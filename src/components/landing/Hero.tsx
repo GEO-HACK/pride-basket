@@ -26,7 +26,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight drop-shadow-xl"
+          className="text-3xl sm:text-5xl md:text-4xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-xl"
         >
           Become a <span className="text-orange-500">Champion</span> <br />
           at Dagopride Basketball Academy
@@ -36,7 +36,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl md:max-w-3xl"
+          className="mt-6 text-base sm:text-md md:text-lg lg:text-xl text-gray-200 max-w-2xl md:max-w-3xl"
         >
           Unlock your potential on and off the court — with elite training, 
           world-class mentorship, and a community that drives success.
