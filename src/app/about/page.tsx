@@ -22,7 +22,7 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-orange-600 mb-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-orange-400 mb-4">
             About DagoPride Academy
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
