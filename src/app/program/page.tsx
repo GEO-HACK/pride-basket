@@ -55,7 +55,7 @@ const Page = () => {
           transition={{ duration: 0.7 }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
         >
-          Daggo Pride Academy Program
+          DagoPride Academy Program
         </motion.h1>
 
         <motion.p
@@ -110,7 +110,7 @@ const Page = () => {
             Basketball Club Formation
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            A maximum of 40 passionate students will form the Daggo Pride
+            A maximum of 40 passionate students will form the DagoPride
             Basketball Club, split into DB Nets (men) and Lady Red Wings (women).
             Selection is based on skill, character, and academic performance.
           </p>
@@ -216,7 +216,7 @@ const Page = () => {
       {/* CTA */}
       <section className="bg-orange-600 text-white py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Join Daggo Pride Academy?
+          Ready to Join DagoPride Academy?
         </h2>
         <p className="max-w-2xl mx-auto mb-8 text-gray-100">
           Become part of a basketball program that builds champions, leaders,

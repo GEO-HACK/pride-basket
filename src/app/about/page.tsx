@@ -23,7 +23,7 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-extrabold text-orange-600 mb-4">
-            About Daggo Pride Academy
+            About DagoPride Academy
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
             Dear parents and children, welcome to a basketball academy that not
@@ -139,7 +139,7 @@ const AboutSection = () => {
                 Coach Isaac Gachiri Njoroge
               </h4>
               <p className="text-gray-700 leading-relaxed">
-                Coach [Full Name] is the founder and head trainer of Daggo Pride
+                Coach Isaac Gachiri Njoroge is the founder and head trainer of DagoPride
                 Academy. With years of experience in player development, he has
                 dedicated his career to nurturing the next generation of
                 basketball talent. His coaching philosophy blends technical

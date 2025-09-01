@@ -6,7 +6,7 @@ import ProgramSection from '@/components/landing/program'
 
 const page = () => {
   return (
-    <div className=" bg-blue-200 h-screen">
+    <div className="bg-blue-200">
       <Hero />
       <Services />
       <About />

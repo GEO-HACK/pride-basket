@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[92%] md:w-4/5 lg:w-2/3 z-50">
-      <div className="flex items-center justify-between px-6 py-4 rounded-2xl backdrop-blur-md bg-white/10 shadow-lg ">
+      <div className="flex items-center justify-between px-6 py-4 rounded-2xl backdrop-blur-md bg-white/20 shadow-lg ">
         {/* Logo */}
         <Link
           href="/"
