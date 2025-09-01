@@ -1,5 +1,8 @@
+"use client"
+
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const About = () => {
     return (
@@ -22,7 +25,8 @@ const About = () => {
                         id="about-heading"
                         className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-gray-900"
                     >
-                        Practical training and <span className='text-orange-400'>mentorship</span> for the next generation of players
+                        Practical training and <span className='text-orange-400'>mentorship</span> 
+                        for the next generation of players
                     </h2>
 
                     <p className="text-gray-700 text-md md:text-lg mb-6 leading-relaxed">
@@ -38,10 +42,13 @@ const About = () => {
                         <li>Programs that build discipline, teamwork, and leadership</li>
                         <li>Exposure to tournaments and real-game experiences</li>
                     </ul>
-                    <div className='flex justify-center mt-3'>
-                        <button className="bg-orange-400 text-white py-2 px-4  rounded-md shadow hover:bg-orange-500 transition">
-                            Learn More
-                        </button>
+
+                    <div className="flex justify-center mt-6">
+                        <Link href="/about">
+                            <button className="bg-orange-400 text-white py-2 px-6 rounded-md shadow hover:bg-orange-500 transition">
+                                Learn More
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

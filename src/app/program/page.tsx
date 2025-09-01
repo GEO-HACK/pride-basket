@@ -46,29 +46,33 @@ const Page = () => {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-orange-600 to-orange-500 text-white py-24 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ duration: 0.7 }}
-            className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6"
-          >
-            Daggo Pride Academy Program
-          </motion.h1>
-          <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            className="text-lg md:text-xl max-w-3xl mx-auto text-gray-100"
-          >
-            Building champions on and off the court through world-class
-            basketball training and mentorship.
-          </motion.p>
-        </div>
-      </section>
+       <section className="relative bg-gradient-to-r from-gray-900 via-orange-500 to-orange-400 text-white py-28 px-6 md:px-12 overflow-hidden">
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <motion.h1
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          transition={{ duration: 0.7 }}
+          className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
+        >
+          Daggo Pride Academy Program
+        </motion.h1>
+
+        <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100"
+        >
+          Building champions on and off the court through <span className="font-semibold">world-class basketball training</span> and dedicated mentorship for the young generation.
+        </motion.p>
+
+      </div>
+
+      {/* Decorative background overlay for a modern look */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+    </section>
 
       {/* Objectives */}
       <section className="py-20 px-6 md:px-12">
