@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { SITE_TITLE } from "@/lib/constants"
 
 const links = [
   { href: "/", label: "Home" },
@@ -26,7 +27,7 @@ const Navbar = () => {
           href="/"
           className="text-2xl font-extrabold tracking-wide text-orange-500"
         >
-          Dagopride
+          {SITE_TITLE}
         </Link>
 
         {/* Desktop Links */}

@@ -3,6 +3,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { Users, Target, Award, Calendar, Shield, Star } from "lucide-react"
+import {SITE_TITLE } from "@/lib/constants"
 
 const objectives = [
   {
@@ -55,7 +56,7 @@ const Page = () => {
           transition={{ duration: 0.7 }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
         >
-          DagoPride Academy Program
+          {SITE_TITLE} Academy Program
         </motion.h1>
 
         <motion.p
@@ -110,7 +111,7 @@ const Page = () => {
             Basketball Club Formation
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            A maximum of 40 passionate students will form the DagoPride
+            A maximum of 40 passionate students will form the {SITE_TITLE}
             Basketball Club, split into DPBA (men) and Lady Red Wings (women).
             Selection is based on skill, character, and academic performance.
           </p>
@@ -216,7 +217,7 @@ const Page = () => {
       {/* CTA */}
       <section className="bg-orange-600 text-white py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Join DagoPride Academy?
+          Ready to Join {SITE_TITLE} Academy?
         </h2>
         <p className="max-w-2xl mx-auto mb-8 text-gray-100">
           Become part of a basketball program that builds champions, leaders,

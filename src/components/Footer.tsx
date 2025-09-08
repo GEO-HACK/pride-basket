@@ -3,6 +3,7 @@
 import React from "react"
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
+import { SITE_TITLE } from "@/lib/constants"
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Section */}
         <div>
-          <h2 className="text-2xl font-bold text-orange-400 mb-4">Daggo Pride Academy</h2>
+          <h2 className="text-2xl font-bold text-orange-400 mb-4">{SITE_TITLE} Academy</h2>
           <p className="text-sm text-gray-400 leading-relaxed">
             Building champions on and off the court through mentorship, discipline, and world-class training.
           </p>
@@ -76,7 +77,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Daggo Pride Academy. All rights reserved.
+        © {new Date().getFullYear()} {SITE_TITLE} Academy. All rights reserved.
       </div>
     </footer>
   )

@@ -4,6 +4,7 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { SITE_TITLE } from "@/lib/constants"
 
 const Hero = () => {
   return (
@@ -11,7 +12,7 @@ const Hero = () => {
       {/* Background image */}
       <Image
         src="/images/pro.png"
-        alt="Dagopride Basketball Academy"
+        alt={`${SITE_TITLE} Basketball Academy`}
         fill
         className="absolute inset-0 object-cover z-0"
         priority
@@ -29,7 +30,7 @@ const Hero = () => {
           className="text-3xl sm:text-5xl md:text-4xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-xl"
         >
           Become a <span className="text-orange-500">Champion</span> <br />
-          at Dagopride Basketball Academy
+          at {SITE_TITLE} Basketball Academy
         </motion.h1>
 
         <motion.p

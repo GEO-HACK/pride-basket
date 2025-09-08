@@ -4,6 +4,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { Users, Target, Award, Shield, Calendar, Star } from "lucide-react"
 import Image from "next/image"
+import {SITE_TITLE } from "@/lib/constants"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -23,7 +24,7 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-extrabold text-orange-400 mb-4">
-            About DagoPride Academy
+            About {SITE_TITLE} Academy
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
             Dear parents and children, welcome to a basketball academy that not
@@ -144,7 +145,7 @@ const AboutSection = () => {
                 </h4>
                 <p className="text-gray-700 leading-relaxed text-lg mb-4">
                   Coach Isaac Gachiri Njoroge is the founder and head trainer of
-                  <span className="font-semibold"> DagoPride Academy</span>. With years of
+                  <span className="font-semibold"> {SITE_TITLE} Academy</span>. With years of
                   experience in player development, he has dedicated his career to
                   nurturing the next generation of basketball talent.
                 </p>
