@@ -28,8 +28,8 @@ const Navbar = () => {
           {SITE_TITLE}
         </Link>
 
-        {/* Desktop Links + Enroll Button */}
-        <div className="hidden md:flex items-center space-x-8 text-gray-800 dark:text-gray-100 text-md font-medium">
+        {/* Desktop Links + CTA Buttons */}
+        <div className="hidden md:flex items-center space-x-6 text-gray-800 dark:text-gray-100 text-md font-medium">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -39,11 +39,21 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+
+          {/* Enroll Button */}
           <Link
             href="/enroll"
             className="px-4 py-2 rounded-xl bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
           >
             Enroll
+          </Link>
+
+          {/* Donate Button */}
+          <Link
+            href="/donate"
+            className="px-4 py-2 rounded-xl text-orange-500 font-semibold shadow-md hover:bg-orange-500 hover:text-white border border-amber-500 transition"
+          >
+            Donate
           </Link>
         </div>
 
@@ -82,10 +92,19 @@ const Navbar = () => {
             {/* Mobile Enroll Button */}
             <Link
               href="/enroll"
-              className="block w-full px-3  rounded-xl bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
+              className="block w-full px-3 py-2 rounded-xl bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
               onClick={() => setIsOpen(false)}
             >
               Enroll
+            </Link>
+
+            {/* Mobile Donate Button */}
+            <Link
+              href="/donate"
+              className="block w-full px-3 py-2 rounded-xl  text-orange-500  font-semibold shadow-md hover:bg-orange-500 hover:text-white transition"
+              onClick={() => setIsOpen(false)}
+            >
+              Donate
             </Link>
           </motion.div>
         )}

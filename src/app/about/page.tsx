@@ -131,7 +131,7 @@ const AboutSection = () => {
               {/* Coach Image */}
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg border-4 border-orange-500">
                 <Image
-                  src="/images/pro.png"
+                  src="/images/izo2.jpg"
                   alt="Head Coach"
                   fill
                   className="object-cover"
