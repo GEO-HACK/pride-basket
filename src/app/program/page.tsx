@@ -111,7 +111,7 @@ const Page = () => {
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
             A maximum of 40 passionate students will form the DagoPride
-            Basketball Club, split into DB Nets (men) and Lady Red Wings (women).
+            Basketball Club, split into DPBA (men) and Lady Red Wings (women).
             Selection is based on skill, character, and academic performance.
           </p>
           <div className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
