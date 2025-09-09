@@ -48,13 +48,14 @@ const Navbar = () => {
             Enroll
           </Link>
 
-          {/* Donate Button (Secondary Outline) */}
+          {/* Donate Button (Secondary) */}
           <Link
             href="/donate"
-            className="px-4 py-2 rounded-xl text-primary font-semibold shadow-md hover:bg-primary hover:text-white border border-secondary transition"
+            className="px-4 py-2 rounded-xl text-primary font-semibold shadow-md border border-secondary hover:bg-primary hover:text-white transition"
           >
             Donate
           </Link>
+
         </div>
 
         {/* Mobile Toggle */}
