@@ -49,12 +49,12 @@ const Navbar = () => {
           </Link>
 
           {/* Donate Button (Secondary Outline) */}
-          <Link
+          {/* <Link
             href="/donate"
             className="px-4 py-2 rounded-xl text-primary font-semibold shadow-md hover:bg-primary hover:text-white border border-secondary transition"
           >
             Donate
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile Toggle */}
@@ -99,13 +99,13 @@ const Navbar = () => {
             </Link>
 
             {/* Mobile Donate Button */}
-            <Link
+            {/* <Link
               href="/donate"
               className="block w-full px-3 py-2 rounded-xl text-primary font-semibold shadow-md border border-secondary hover:bg-primary hover:text-white transition"
               onClick={() => setIsOpen(false)}
             >
               Donate
-            </Link>
+            </Link> */}
           </motion.div>
         )}
       </AnimatePresence>
