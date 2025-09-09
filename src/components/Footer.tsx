@@ -77,13 +77,7 @@ const Footer = () => {
             >
               <Facebook className="w-6 h-6" />
             </Link>
-            <Link
-              href="https://twitter.com"
-              target="_blank"
-              className="hover:text-primary-hover transition-colors"
-            >
-              <Twitter className="w-6 h-6" />
-            </Link>
+           
             <Link
               href="https://www.instagram.com/daggopridebasketballacademy"
               target="_blank"
