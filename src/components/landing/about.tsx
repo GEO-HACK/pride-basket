@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const About = () => {
     return (
-        <section className="bg-gradient-to-r from-orange-50 to-white py-16 px-6 md:px-12">
+        <section className="bg-gradient-to-r from-primary-bg to-white py-16 px-6 md:px-12">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch gap-12">
                 {/* Image Section */}
                 <div className="flex-1">
@@ -25,7 +25,7 @@ const About = () => {
                         id="about-heading"
                         className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 text-gray-900"
                     >
-                        Practical training and <span className='text-orange-400'>mentorship</span> 
+                        Practical training and <span className="text-primary-light">mentorship</span> 
                         for the next generation of players
                     </h2>
 
@@ -45,7 +45,7 @@ const About = () => {
 
                     <div className="flex justify-center mt-6">
                         <Link href="/about">
-                            <button className="bg-orange-400 text-white py-2 px-6 rounded-md shadow hover:bg-orange-500 transition">
+                            <button className="bg-primary text-white py-2 px-6 rounded-md shadow hover:bg-primary transition">
                                 Learn More
                             </button>
                         </Link>

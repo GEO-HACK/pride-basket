@@ -3,8 +3,16 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { Users, Target, Award, Calendar, Shield, Star } from "lucide-react"
-import {SITE_TITLE } from "@/lib/constants"
+import Link from "next/link"
+import { SITE_TITLE } from "@/lib/constants"
 
+// Motion Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+}
+
+// Data
 const objectives = [
   {
     icon: Target,
@@ -38,42 +46,47 @@ const teams = [
   },
 ]
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
-}
+const weeklySchedule = [
+  { day: "Mon–Tue", focus: "Ball Handling", activities: "Ball taps, wraps, combo drills" },
+  { day: "Wed", focus: "Shooting", activities: "Spot shooting, off-dribble, shot fakes" },
+  { day: "Thu", focus: "Passing", activities: "Outlet passes, passes vs. pressure" },
+  { day: "Fri", focus: "Defense", activities: "Defensive stance, wing denial, transitional defense" },
+  {
+    day: "Sat",
+    focus: "Scrimmage",
+    activities: "8–11am: Grade school | 11–1pm: Ladies | 2–4pm: High school | 4–6pm: Senior elite",
+  },
+]
 
 const Page = () => {
   return (
     <div className="bg-white text-gray-800">
       {/* Hero */}
-       <section className="relative bg-gradient-to-r from-gray-900 via-orange-500 to-orange-400 text-white py-28 px-6 md:px-12 overflow-hidden">
-      <div className="max-w-6xl mx-auto text-center relative z-10">
-        <motion.h1
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          transition={{ duration: 0.7 }}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
-        >
-          {SITE_TITLE} Academy Program
-        </motion.h1>
+      <section className="relative bg-gradient-to-r from-gray-900 via-primary to-primary-dark text-white py-28 px-6 md:px-12 overflow-hidden">
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ duration: 0.7 }}
+            className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight"
+          >
+            {SITE_TITLE} Academy Program
+          </motion.h1>
 
-        <motion.p
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          transition={{ delay: 0.2, duration: 0.7 }}
-          className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100"
-        >
-          Building champions on and off the court through <span className="font-semibold">world-class basketball training</span> and dedicated mentorship for the young generation.
-        </motion.p>
-
-      </div>
-
-      {/* Decorative background overlay for a modern look */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-    </section>
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeInUp}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="text-lg md:text-xl max-w-2xl mx-auto text-gray-100"
+          >
+            Building champions on and off the court through{" "}
+            <span className="font-semibold">world-class basketball training</span> and dedicated mentorship for the young generation.
+          </motion.p>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+      </section>
 
       {/* Objectives */}
       <section className="py-20 px-6 md:px-12">
@@ -94,7 +107,7 @@ const Page = () => {
                   transition={{ duration: 0.5, delay: i * 0.2 }}
                   className="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition"
                 >
-                  <Icon className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+                  <Icon className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-3">{obj.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{obj.desc}</p>
                 </motion.div>
@@ -105,20 +118,18 @@ const Page = () => {
       </section>
 
       {/* Club Formation */}
-      <section className="py-20 bg-gray-50 px-6 md:px-12">
+      <section className="py-20 bg-secondary/10 px-6 md:px-12">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Basketball Club Formation
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            A maximum of 40 passionate students will form the {SITE_TITLE}
-            Basketball Club, split into DPBA (men) and Lady Red Wings (women).
+            A maximum of 40 passionate students will form the {SITE_TITLE} Basketball Club, split into DPBA (men) and Lady Red Wings (women).
             Selection is based on skill, character, and academic performance.
           </p>
           <div className="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
             <p className="text-gray-600">
-              <strong>Requirements:</strong> Minimum 70% grade average, among the
-              top 15 skilled players, and good moral character.
+              <strong>Requirements:</strong> Minimum 70% grade average, among the top 15 skilled players, and good moral character.
             </p>
           </div>
         </div>
@@ -132,7 +143,7 @@ const Page = () => {
           </h2>
           <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-100">
             <table className="w-full border-collapse bg-white">
-              <thead className="bg-orange-50 text-orange-700">
+              <thead className="bg-primary/10 text-primary">
                 <tr>
                   <th className="p-4 text-left font-semibold">Day</th>
                   <th className="p-4 text-left font-semibold">Focus</th>
@@ -140,36 +151,13 @@ const Page = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                <tr>
-                  <td className="p-4">Mon–Tue</td>
-                  <td className="p-4">Ball Handling</td>
-                  <td className="p-4">Ball taps, wraps, combo drills</td>
-                </tr>
-                <tr>
-                  <td className="p-4">Wed</td>
-                  <td className="p-4">Shooting</td>
-                  <td className="p-4">Spot shooting, off-dribble, shot fakes</td>
-                </tr>
-                <tr>
-                  <td className="p-4">Thu</td>
-                  <td className="p-4">Passing</td>
-                  <td className="p-4">Outlet passes, passes vs. pressure</td>
-                </tr>
-                <tr>
-                  <td className="p-4">Fri</td>
-                  <td className="p-4">Defense</td>
-                  <td className="p-4">
-                    Defensive stance, wing denial, transitional defense
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-4">Sat</td>
-                  <td className="p-4">Scrimmage</td>
-                  <td className="p-4">
-                    8–11am: Grade school | 11–1pm: Ladies | 2–4pm: High school |
-                    4–6pm: Senior elite
-                  </td>
-                </tr>
+                {weeklySchedule.map((row, i) => (
+                  <tr key={i}>
+                    <td className="p-4">{row.day}</td>
+                    <td className="p-4">{row.focus}</td>
+                    <td className="p-4">{row.activities}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -177,7 +165,7 @@ const Page = () => {
       </section>
 
       {/* Teams */}
-      <section className="py-20 bg-gray-50 px-6 md:px-12">
+      <section className="py-20 bg-secondary/10 px-6 md:px-12">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Our Teams</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -191,7 +179,7 @@ const Page = () => {
                 transition={{ duration: 0.5, delay: i * 0.2 }}
                 className="p-8 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition"
               >
-                <Star className="w-10 h-10 text-orange-500 mx-auto mb-4" />
+                <Star className="w-10 h-10 text-primary mx-auto mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{team.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{team.desc}</p>
               </motion.div>
@@ -200,35 +188,33 @@ const Page = () => {
         </div>
       </section>
 
-      {/* Buddy System & Duration */}
+      {/* Buddy System */}
       <section className="py-20 px-6 md:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Buddy System & Duration
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Athletes mentor each other, with senior players teaching juniors to
-            reinforce their own skills. The program runs year-round, including
-            long school holidays.
+            Athletes mentor each other, with senior players teaching juniors to reinforce their own skills. The program runs year-round,
+            including long school holidays.
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-orange-600 text-white py-20 text-center">
+      <section className="bg-primary text-white py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Ready to Join {SITE_TITLE} Academy?
         </h2>
         <p className="max-w-2xl mx-auto mb-8 text-gray-100">
-          Become part of a basketball program that builds champions, leaders,
-          and future mentors.
+          Become part of a basketball program that builds champions, leaders, and future mentors.
         </p>
-        <a
+        <Link
           href="/enroll"
-          className="inline-block px-10 py-4 bg-white text-orange-600 font-semibold rounded-xl shadow-sm hover:bg-gray-100 transition"
+          className="inline-block px-10 py-4 bg-white text-primary font-semibold rounded-xl shadow-sm hover:bg-gray-100 transition"
         >
           Enroll Now
-        </a>
+        </Link>
       </section>
     </div>
   )
