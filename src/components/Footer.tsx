@@ -3,7 +3,7 @@
 import React from "react"
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
-import { SITE_TITLE } from "@/lib/constants"
+import { SITE_TITLE, PHONE_NUMBER } from "@/lib/constants"
 
 const Footer = () => {
   return (
@@ -57,7 +57,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-primary" />
-              <span>+254 757 724 733</span>
+              <span>{PHONE_NUMBER}</span>
             </li>
             <li className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-primary" />
