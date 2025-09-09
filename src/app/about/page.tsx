@@ -4,7 +4,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { Users, Target, Award, Shield, Calendar, Star } from "lucide-react"
 import Image from "next/image"
-import {SITE_TITLE } from "@/lib/constants"
+import { SITE_TITLE } from "@/lib/constants"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -23,7 +23,7 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-orange-400 mb-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-primary mb-4">
             About {SITE_TITLE} Academy
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
@@ -40,7 +40,7 @@ const AboutSection = () => {
             animate="visible"
             variants={fadeInUp}
             transition={{ duration: 0.7 }}
-            className="bg-gradient-to-r from-orange-500 to-orange-400 text-white p-8 rounded-2xl shadow-lg"
+            className="bg-gradient-to-r from-primary to-primary-hover text-white p-8 rounded-2xl shadow-lg"
           >
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
             <p className="text-lg leading-relaxed">
@@ -111,9 +111,9 @@ const AboutSection = () => {
                 animate="visible"
                 variants={fadeInUp}
                 transition={{ delay: 0.1 * i, duration: 0.7 }}
-                className="p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-xl transition"
+                className="p-6 bg-primary-bg rounded-xl shadow-md hover:shadow-xl transition"
               >
-                <item.icon className="h-10 w-10 text-orange-600 mb-4" />
+                <item.icon className="h-10 w-10 text-primary mb-4" />
                 <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
                 <p className="text-gray-600">{item.desc}</p>
               </motion.div>
@@ -122,14 +122,14 @@ const AboutSection = () => {
         </div>
 
         {/* Coach Section */}
-        <section className="relative bg-gradient-to-r from-white via-gray-50 to-orange-50 py-16 px-6 md:px-12">
+        <section className="relative bg-gradient-to-r from-white via-gray-50 to-primary-bg py-16 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
               Meet Our Head Coach
             </h3>
             <div className="flex flex-col md:flex-row items-center md:items-start gap-10 bg-white rounded-2xl shadow-xl p-8 md:p-12">
               {/* Coach Image */}
-              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg border-4 border-orange-500">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg border-4 border-primary">
                 <Image
                   src="/images/izo2.jpg"
                   alt="Head Coach"
@@ -140,7 +140,7 @@ const AboutSection = () => {
 
               {/* Coach Bio */}
               <div className="flex-1">
-                <h4 className="text-2xl md:text-3xl font-bold text-orange-600 mb-4">
+                <h4 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                   Coach Isaac Gachiri Njoroge
                 </h4>
                 <p className="text-gray-700 leading-relaxed text-lg mb-4">
@@ -163,7 +163,6 @@ const AboutSection = () => {
             </div>
           </div>
         </section>
-
       </div>
     </section>
   )

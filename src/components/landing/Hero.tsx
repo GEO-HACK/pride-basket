@@ -29,7 +29,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-3xl sm:text-5xl md:text-4xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-xl"
         >
-          Become a <span className="text-orange-500">Champion</span> <br />
+          Become a <span className="text-primary">Champion</span> <br />
           at {SITE_TITLE} Basketball Academy
         </motion.h1>
 
@@ -51,7 +51,7 @@ const Hero = () => {
           className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"
         >
           <Link href="/enroll">
-            <button className="w-full sm:w-auto px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg rounded-full shadow-lg transition-transform transform hover:scale-105">
+            <button className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary-hover text-white font-bold text-lg rounded-full shadow-lg transition-transform transform hover:scale-105">
               Enroll Now
             </button>
           </Link>

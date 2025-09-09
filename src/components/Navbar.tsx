@@ -23,7 +23,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-extrabold tracking-wide text-orange-500"
+          className="text-2xl font-extrabold tracking-wide text-primary"
         >
           {SITE_TITLE}
         </Link>
@@ -34,24 +34,24 @@ const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="hover:text-orange-400 transition-colors"
+              className="hover:text-primary-hover transition-colors"
             >
               {link.label}
             </Link>
           ))}
 
-          {/* Enroll Button */}
+          {/* Enroll Button (Primary) */}
           <Link
             href="/enroll"
-            className="px-4 py-2 rounded-xl bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
+            className="px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow-md hover:bg-primary-hover transition"
           >
             Enroll
           </Link>
 
-          {/* Donate Button */}
+          {/* Donate Button (Secondary Outline) */}
           <Link
             href="/donate"
-            className="px-4 py-2 rounded-xl text-orange-500 font-semibold shadow-md hover:bg-orange-500 hover:text-white border border-amber-500 transition"
+            className="px-4 py-2 rounded-xl text-primary font-semibold shadow-md hover:bg-primary hover:text-white border border-secondary transition"
           >
             Donate
           </Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block hover:text-orange-400 transition-colors"
+                className="block hover:text-primary-hover transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -92,7 +92,7 @@ const Navbar = () => {
             {/* Mobile Enroll Button */}
             <Link
               href="/enroll"
-              className="block w-full px-3 py-2 rounded-xl bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition"
+              className="block w-full px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow-md hover:bg-primary-hover transition"
               onClick={() => setIsOpen(false)}
             >
               Enroll
@@ -101,7 +101,7 @@ const Navbar = () => {
             {/* Mobile Donate Button */}
             <Link
               href="/donate"
-              className="block w-full px-3 py-2 rounded-xl  text-orange-500  font-semibold shadow-md hover:bg-orange-500 hover:text-white transition"
+              className="block w-full px-3 py-2 rounded-xl text-primary font-semibold shadow-md border border-secondary hover:bg-primary hover:text-white transition"
               onClick={() => setIsOpen(false)}
             >
               Donate

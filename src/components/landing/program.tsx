@@ -42,7 +42,7 @@ const ProgramSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-extrabold text-orange-500 mb-6"
+          className="text-4xl md:text-5xl font-extrabold text-primary mb-6"
         >
           Daggo Pride Academy Program
         </motion.h2>
@@ -71,9 +71,9 @@ const ProgramSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="p-6 bg-orange-50 rounded-2xl shadow-md hover:shadow-lg transition"
+                className="p-6 bg-primary-bg rounded-2xl shadow-md hover:shadow-lg transition"
               >
-                <Icon className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+                <Icon className="w-12 h-12 text-primary mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
@@ -92,7 +92,7 @@ const ProgramSection = () => {
         >
           <Link
             href="/program"
-            className="inline-block px-10 py-4 bg-orange-500 text-white font-semibold rounded-2xl shadow-md hover:bg-orange-600 hover:shadow-lg transition"
+            className="inline-block px-10 py-4 bg-primary text-white font-semibold rounded-2xl shadow-md hover:bg-primary-hover hover:shadow-lg transition"
           >
             Explore Full Program
           </Link>
