@@ -71,7 +71,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
           <div className="flex gap-4">
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/19i8BTtzfQ/"
               target="_blank"
               className="hover:text-primary-hover transition-colors"
             >
@@ -85,7 +85,7 @@ const Footer = () => {
               <Twitter className="w-6 h-6" />
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/daggopridebasketballacademy"
               target="_blank"
               className="hover:text-primary-hover transition-colors"
             >
