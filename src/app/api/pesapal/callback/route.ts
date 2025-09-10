@@ -4,9 +4,9 @@ export async function POST(req: Request) {
   const body = await req.json();
 
   // ✅ Log for debugging
-  console.log("Pesapal Callback:", body);
+  console.log("Pesapal Callback to the api:", body);
 
-  // TODO: update your DB with body.status, body.payment_method, etc.
+
 
   return NextResponse.json({ received: true });
 }
