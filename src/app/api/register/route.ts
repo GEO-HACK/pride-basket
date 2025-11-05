@@ -53,7 +53,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Create new registration
-    const registration = await Registration.create(body);
+  const registration = await Registration.create(body);
+
+  const origin = request.nextUrl?.origin || new URL(request.url).origin;
+  const downloadUrl = `${origin}/api/register/pdf/${registration._id}`;
 
     return NextResponse.json(
       {
@@ -64,6 +67,7 @@ export async function POST(request: NextRequest) {
           email: registration.email,
           firstName: registration.firstName,
           lastName: registration.lastName,
+          downloadUrl,
         },
       },
       { status: 201 }

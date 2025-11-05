@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import SuccessModal from "@/components/registration/SuccessModal"
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,8 @@ const RegistrationForm = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null
     message: string
@@ -59,6 +62,11 @@ const RegistrationForm = () => {
           type: "success",
           message: "Registration submitted successfully! We'll contact you soon.",
         })
+        if (data?.data?.downloadUrl) {
+          const dl = data.data.downloadUrl as string
+          setDownloadUrl(dl)
+          setShowSuccessModal(true)
+        }
         // Reset form
         setFormData({
           firstName: "",
@@ -116,6 +124,7 @@ const RegistrationForm = () => {
           {submitStatus.message}
         </div>
       )}
+
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Information */}
@@ -454,6 +463,14 @@ const RegistrationForm = () => {
           </button>
         </div>
       </form>
+
+      {showSuccessModal && downloadUrl && (
+        <SuccessModal
+          open={showSuccessModal}
+          downloadUrl={downloadUrl}
+          onClose={() => setShowSuccessModal(false)}
+        />
+      )}
     </div>
   )
 }
