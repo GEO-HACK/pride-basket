@@ -3,7 +3,11 @@
 import React, { useState } from "react"
 import SuccessModal from "@/components/registration/SuccessModal"
 
-const RegistrationForm = () => {
+type Props = {
+  selectedAgeGroup: string
+}
+
+const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -21,7 +25,7 @@ const RegistrationForm = () => {
     medicalConditions: "",
     emergencyContact: "",
     emergencyPhone: "",
-    programInterest: "",
+    programInterest: selectedAgeGroup,
     skills: "",
     experience: "",
   })
@@ -401,23 +405,12 @@ const RegistrationForm = () => {
           <div className="space-y-4">
             <div>
               <label htmlFor="programInterest" className="block text-sm font-medium text-gray-700 mb-1">
-                Program Interest *
+                Selected Age Group
               </label>
-              <select
-                id="programInterest"
-                name="programInterest"
-                value={formData.programInterest}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                <option value="">Select a Program</option>
-                <option value="youth-development">Youth Development Program</option>
-                <option value="competitive-training">Competitive Training</option>
-                <option value="beginner-skills">Beginner Skills Camp</option>
-                <option value="advanced-training">Advanced Training</option>
-                <option value="tournament-team">Tournament Team</option>
-              </select>
+              <div className="w-full px-4 py-3 border border-gray-300 bg-gray-50 text-gray-700 rounded-lg font-medium">
+                {selectedAgeGroup.toUpperCase().replace(/-/g, ' ')}
+              </div>
+              <input type="hidden" name="programInterest" value={formData.programInterest} />
             </div>
 
             <div>
