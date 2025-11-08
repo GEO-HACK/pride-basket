@@ -189,6 +189,20 @@ export async function GET(
     page.drawLine({ start: { x: 40, y }, end: { x: width - 40, y }, thickness: 0.5, color: lineColor });
     drawSectionGridDivider(programTop, y);
 
+    // Consent & Declarations
+    y -= 10;
+    const consentTop = y + 6;
+    drawSectionHeader('Consent & Declarations');
+    const accepted = registration.termsAccepted ? 'Yes' : 'No';
+    const acceptedAt = registration.termsAcceptedAt
+      ? new Date(registration.termsAcceptedAt).toLocaleString()
+      : '';
+    drawRow('Terms Accepted', accepted, leftX);
+    drawRow('Accepted At', acceptedAt, rightX);
+    y -= lineGap * 2;
+    page.drawLine({ start: { x: 40, y }, end: { x: width - 40, y }, thickness: 0.5, color: lineColor });
+    drawSectionGridDivider(consentTop, y);
+
     // Long text sections
     const drawParagraph = (label: string, text: string) => {
       page.drawText(label, { x: leftX, y, size: 10, font: boldFont, color: gray(0.25) });

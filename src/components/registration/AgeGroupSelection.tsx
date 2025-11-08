@@ -31,7 +31,7 @@ const AgeGroupSelection: React.FC<Props> = ({ onSelectAgeGroup }) => {
             Please select the age group from below to register your child for the 2025/26 Season.
           </p>
           <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-            Membership Fees - £150.00 per child for the full season. Payable in one-off payment or in installments (see form below for details). 
+            Membership Fees - KSH.2000 per child for the full season. Payable in one-off payment or in installments (see form below for details).
             Membership includes training, club kit, use of equipment, and friendly matches. Kent League fees and player license fees are not included.
           </p>
         </div>

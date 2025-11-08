@@ -20,6 +20,8 @@ export interface IRegistration extends Document {
   programInterest: string;
   skills?: string;
   experience?: string;
+  termsAccepted: boolean;
+  termsAcceptedAt?: Date;
   createdAt: Date;
 }
 
@@ -115,6 +117,14 @@ const RegistrationSchema: Schema = new Schema({
   experience: {
     type: String,
     trim: true,
+  },
+  termsAccepted: {
+    type: Boolean,
+    required: [true, 'Please accept the Terms & Conditions to proceed'],
+    default: false,
+  },
+  termsAcceptedAt: {
+    type: Date,
   },
   createdAt: {
     type: Date,

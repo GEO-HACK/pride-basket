@@ -25,6 +25,7 @@ export async function POST(request: NextRequest) {
       'emergencyContact',
       'emergencyPhone',
       'programInterest',
+      'termsAccepted',
     ];
 
     const missingFields = requiredFields.filter((field) => !body[field]);
@@ -52,8 +53,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create new registration
-  const registration = await Registration.create(body);
+    // Require explicit Terms acceptance
+    if (body.termsAccepted !== true) {
+      return NextResponse.json(
+        { success: false, error: 'You must accept the Terms & Conditions to register.' },
+        { status: 400 }
+      );
+    }
+
+    // Create new registration and stamp acceptance time
+  const registration = await Registration.create({
+      ...body,
+      termsAcceptedAt: new Date(),
+    });
 
   const origin = request.nextUrl?.origin || new URL(request.url).origin;
   const downloadUrl = `${origin}/api/register/pdf/${registration._id}`;

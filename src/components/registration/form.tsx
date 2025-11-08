@@ -28,6 +28,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
     programInterest: selectedAgeGroup,
     skills: "",
     experience: "",
+    termsAccepted: false,
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -92,6 +93,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
           programInterest: "",
           skills: "",
           experience: "",
+          termsAccepted: false,
         })
       } else {
         setSubmitStatus({
@@ -445,11 +447,37 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
           </div>
         </div>
 
+        {/* Terms acceptance */}
+        <div className="pt-4">
+          <label className="flex items-start gap-3 text-sm text-gray-700">
+            <input
+              type="checkbox"
+              name="termsAccepted"
+              checked={formData.termsAccepted}
+              onChange={(e) => setFormData((p) => ({ ...p, termsAccepted: e.target.checked }))}
+              className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              required
+            />
+            <span>
+              I have read and agree to the
+              {" "}
+              <a href="/terms" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                Terms & Conditions
+              </a>
+              {" "}and the{ " "}
+              <a href="/privacy" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </a>
+              .
+            </span>
+          </label>
+        </div>
+
         {/* Submit Button */}
         <div className="flex justify-end pt-6">
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !formData.termsAccepted}
             className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isSubmitting ? "Submitting..." : "Submit Registration"}
