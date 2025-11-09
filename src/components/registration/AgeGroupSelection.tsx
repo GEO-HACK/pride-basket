@@ -41,7 +41,7 @@ const AgeGroupSelection: React.FC<Props> = ({ onSelectAgeGroup }) => {
             <button
               key={group.id}
               onClick={() => onSelectAgeGroup(group.value)}
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-8 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-300"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-5 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-orange-300"
             >
               <span className="text-lg tracking-wide">{group.label}</span>
             </button>

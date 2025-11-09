@@ -24,7 +24,7 @@ const MasonryGallery: React.FC<Props> = ({ images }) => {
   return (
     <>
       {/* Masonry Grid */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+      <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 [column-gap:0.5rem] space-y-2">
         {images.map((image) => (
           <div
             key={image.id}
@@ -34,11 +34,9 @@ const MasonryGallery: React.FC<Props> = ({ images }) => {
             <CldImage
               src={image.publicId}
               alt={image.alt}
-              width={400}
-              height={600}
-              crop="fill"
-              gravity="auto"
-              className="w-full h-auto object-cover"
+              width={800}
+              crop="scale"
+              className="w-full h-auto object-contain"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             />
             {image.caption && (
