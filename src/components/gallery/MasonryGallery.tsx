@@ -25,27 +25,35 @@ const MasonryGallery: React.FC<Props> = ({ images }) => {
     <>
       {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 [column-gap:0.5rem] space-y-2">
-        {images.map((image) => (
-          <div
-            key={image.id}
-            className="break-inside-avoid cursor-pointer group relative overflow-hidden bg-gray-100 hover:opacity-95 transition-opacity duration-200"
-            onClick={() => setSelectedImage(image)}
-          >
-            <CldImage
-              src={image.publicId}
-              alt={image.alt}
-              width={800}
-              crop="scale"
-              className="w-full h-auto object-contain"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-            />
-            {image.caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <p className="text-white text-sm font-medium">{image.caption}</p>
-              </div>
-            )}
-          </div>
-        ))}
+    {images.map((image) => {
+  const targetHeight =
+    image.width && image.height
+      ? Math.round(800 * (image.height / image.width))
+      : 600; // fallback height
+
+  return (
+    <div
+      key={image.id}
+      className="break-inside-avoid cursor-pointer group relative overflow-hidden bg-gray-100 hover:opacity-95 transition-opacity duration-200"
+      onClick={() => setSelectedImage(image)}
+    >
+      <CldImage
+        src={image.publicId}
+        alt={image.alt}
+        width={800}
+        height={targetHeight}
+        crop="fit"
+        className="w-full h-auto object-contain"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+      />
+      {image.caption && (
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <p className="text-white text-sm font-medium">{image.caption}</p>
+        </div>
+      )}
+    </div>
+  );
+})}
       </div>
 
       {/* Lightbox Modal */}
