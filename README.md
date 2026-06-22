@@ -32,3 +32,7 @@ This project powers the official academy website, where users can learn more abo
 ├── public/           # Static files
 ├── package.json      # Dependencies and scripts
 └── README.md         # Project documentation
+
+
+<img width="1274" height="659" alt="image" src="https://github.com/user-attachments/assets/79c2a286-789d-416c-9631-54c353ee1bda" />
+

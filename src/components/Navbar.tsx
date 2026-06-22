@@ -50,8 +50,8 @@ const Navbar = () => {
 
           {/* Donate Button (Secondary) */}
           <Link
-            href="/donate"
-            className="px-4 py-2 rounded-xl text-primary font-semibold shadow-md border border-secondary hover:bg-primary hover:text-white transition"
+            href="/donations"
+            className="px-4 py-2 rounded-xl text-primary font-semibold shadow-md hover:bg-primary hover:text-white border border-secondary transition"
           >
             Donate
           </Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
 
             {/* Mobile Donate Button */}
             <Link
-              href="/donate"
+              href="/donations"
               className="block w-full px-3 py-2 rounded-xl text-primary font-semibold shadow-md border border-secondary hover:bg-primary hover:text-white transition"
               onClick={() => setIsOpen(false)}
             >

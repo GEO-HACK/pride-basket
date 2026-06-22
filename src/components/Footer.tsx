@@ -3,7 +3,7 @@
 import React from "react"
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
-import { SITE_TITLE } from "@/lib/constants"
+import { SITE_TITLE, PHONE_NUMBER } from "@/lib/constants"
 
 const Footer = () => {
   return (
@@ -53,11 +53,11 @@ const Footer = () => {
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-3">
               <Mail className="w-5 h-5 text-primary" />
-              <span>info@daggoacademy.com</span>
+              <span>daggopride254@gmail.com</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-primary" />
-              <span>+254 700 123 456</span>
+              <span>{PHONE_NUMBER}</span>
             </li>
             <li className="flex items-center gap-3">
               <MapPin className="w-5 h-5 text-primary" />
@@ -71,21 +71,15 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
           <div className="flex gap-4">
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/19i8BTtzfQ/"
               target="_blank"
               className="hover:text-primary-hover transition-colors"
             >
               <Facebook className="w-6 h-6" />
             </Link>
+           
             <Link
-              href="https://twitter.com"
-              target="_blank"
-              className="hover:text-primary-hover transition-colors"
-            >
-              <Twitter className="w-6 h-6" />
-            </Link>
-            <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/daggopridebasketballacademy"
               target="_blank"
               className="hover:text-primary-hover transition-colors"
             >
