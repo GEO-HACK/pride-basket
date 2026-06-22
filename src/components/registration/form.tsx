@@ -32,7 +32,6 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null
@@ -63,15 +62,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
       const data = await response.json()
 
       if (response.ok && data.success) {
-        setSubmitStatus({
-          type: "success",
-          message: "Registration submitted successfully! We'll contact you soon.",
-        })
-        if (data?.data?.downloadUrl) {
-          const dl = data.data.downloadUrl as string
-          setDownloadUrl(dl)
-          setShowSuccessModal(true)
-        }
+        setShowSuccessModal(true)
         // Reset form
         setFormData({
           firstName: "",
@@ -412,7 +403,6 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
               <div className="w-full px-4 py-3 border border-gray-300 bg-gray-50 text-gray-700 rounded-lg font-medium">
                 {selectedAgeGroup.toUpperCase().replace(/-/g, ' ')}
               </div>
-              <input type="hidden" name="programInterest" value={formData.programInterest} />
             </div>
 
             <div>
@@ -485,10 +475,9 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
         </div>
       </form>
 
-      {showSuccessModal && downloadUrl && (
+      {showSuccessModal && (
         <SuccessModal
           open={showSuccessModal}
-          downloadUrl={downloadUrl}
           onClose={() => setShowSuccessModal(false)}
         />
       )}
