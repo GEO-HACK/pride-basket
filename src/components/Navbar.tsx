@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -10,13 +10,40 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/program", label: "Program" },
+  {href: "/gallery", label: "Gallery" },
 ]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY < 10) {
+        // Always show at top
+        setIsVisible(true)
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down
+        setIsVisible(false)
+      } else {
+        // Scrolling up
+        setIsVisible(true)
+      }
+      
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [lastScrollY])
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[92%] md:w-4/5 lg:w-2/3 z-50">
+    <nav className={`fixed left-1/2 transform -translate-x-1/2 w-[92%] md:w-4/5 lg:w-2/3 z-50 transition-all duration-300 ${
+      isVisible ? "top-4" : "-top-24"
+    }`}>
       <div className="flex items-center justify-between px-6 py-4 rounded-2xl backdrop-blur-md 
         bg-white/40 dark:bg-gray-900/40 shadow-xl">
         
