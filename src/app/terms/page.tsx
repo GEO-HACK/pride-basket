@@ -8,7 +8,7 @@ export const metadata = {
 
 const TermsPage = () => {
   return (
-    <main className="min-h-screen pt-28 pb-16 px-6 bg-white text-gray-900">
+    <main className="min-h-screen pt-26 pb-16 px-6 bg-white text-gray-900">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">
           Terms and Conditions
