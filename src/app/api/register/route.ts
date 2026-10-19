@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const BREVO_API = 'https://api.brevo.com/v3'
+const ORG_EMAIL = 'daggopride254@gmail.com'
+
+const escapeHtml = (v: unknown) =>
+  String(v ?? '').replace(/[&<>"']/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
+  )
 
 interface RegistrationData {
   firstName: string
@@ -74,12 +80,16 @@ async function addContactToList(data: RegistrationData) {
   }
 }
 
-async function notifyOwner(data: RegistrationData) {
+async function notifyOwner(raw: RegistrationData) {
   const apiKey = process.env.BREVO_API_KEY
-  const ownerEmail = process.env.BREVO_OWNER_EMAIL
-  const senderEmail = process.env.BREVO_SENDER_EMAIL
+  const ownerEmail = process.env.BREVO_OWNER_EMAIL || ORG_EMAIL
+  const senderEmail = process.env.BREVO_SENDER_EMAIL || ORG_EMAIL
 
-  if (!apiKey || !ownerEmail || !senderEmail) return
+  if (!apiKey) throw new Error('Brevo API key not configured')
+
+  const data = Object.fromEntries(
+    Object.entries(raw).map(([k, v]) => [k, typeof v === 'string' ? escapeHtml(v) : v])
+  ) as unknown as RegistrationData
 
   const html = `
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
@@ -109,7 +119,7 @@ async function notifyOwner(data: RegistrationData) {
     </div>
   `
 
-  await fetch(`${BREVO_API}/smtp/email`, {
+  const res = await fetch(`${BREVO_API}/smtp/email`, {
     method: 'POST',
     headers: {
       accept: 'application/json',
@@ -119,10 +129,16 @@ async function notifyOwner(data: RegistrationData) {
     body: JSON.stringify({
       sender: { name: 'DaggoPride Registration', email: senderEmail },
       to: [{ email: ownerEmail }],
-      subject: `New Registration: ${data.firstName} ${data.lastName} — ${data.programInterest}`,
+      replyTo: { email: raw.email, name: `${raw.firstName} ${raw.lastName}` },
+      subject: `New Registration: ${raw.firstName} ${raw.lastName} — ${raw.programInterest}`,
       htmlContent: html,
     }),
   })
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.message || `Brevo email failed with status ${res.status}`)
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -150,7 +166,13 @@ export async function POST(request: NextRequest) {
     }
 
     await addContactToList(body)
-    await notifyOwner(body)
+    // The contact is already saved to the list, so a failed notification
+    // shouldn't fail the registration — log it so it can be investigated.
+    try {
+      await notifyOwner(body)
+    } catch (err) {
+      console.error('Registration notification email failed:', err)
+    }
 
     return NextResponse.json({ success: true, message: 'Registration submitted successfully' })
   } catch (error) {

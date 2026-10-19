@@ -14,7 +14,7 @@ const SuccessModal: React.FC<Props> = ({ open, onClose }) => {
   return (
     <div className="fixed inset-0 z-50">
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-white/10"
         aria-hidden="true"
         onClick={onClose}
       />
@@ -24,12 +24,12 @@ const SuccessModal: React.FC<Props> = ({ open, onClose }) => {
           role="dialog"
           aria-modal="true"
           aria-labelledby="success-title"
-          className="relative w-full max-w-lg rounded-2xl bg-white shadow-2xl ring-1 ring-black/5"
+          className="relative w-full max-w-lg rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-2xl"
         >
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute right-3 top-3 rounded-full p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+            className="absolute right-3 top-3 rounded-full p-2 text-black/60 hover:bg-black/5 hover:text-black"
           >
             <X size={18} />
           </button>
@@ -38,10 +38,10 @@ const SuccessModal: React.FC<Props> = ({ open, onClose }) => {
             <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-700">
               <CheckCircle2 size={28} />
             </div>
-            <h2 id="success-title" className="text-xl font-semibold text-gray-900">
+            <h2 id="success-title" className="text-xl font-semibold text-black">
               Registration successful!
             </h2>
-            <p className="mt-2 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-black/80">
               Thank you for registering with DaggoPride Basketball Academy. We have received your
               details and will be in touch with you shortly.
             </p>

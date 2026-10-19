@@ -3,6 +3,11 @@
 import React, { useState } from "react"
 import SuccessModal from "@/components/registration/SuccessModal"
 
+const fieldClass =
+  "w-full px-4 py-2 rounded-lg text-black placeholder:text-gray-500 bg-white/40 backdrop-blur-md border border-white/60 shadow-sm focus:outline-none focus:bg-white/60 focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+const labelClass = "block text-sm font-medium text-black mb-1"
+const sectionClass = "border-b border-black/10 pb-6"
+
 type Props = {
   selectedAgeGroup: string
 }
@@ -104,10 +109,10 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
   }
 
   return (
-    <div className="max-w-4xl w-full bg-white rounded-2xl shadow-lg p-8 mt-10 mb-10">
+    <div className="max-w-4xl w-full rounded-2xl p-8 mt-10 mb-10 text-black bg-white/30 backdrop-blur-xl border border-white/50 shadow-2xl">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Program Registration</h1>
-        <p className="text-gray-600">Join our basketball program and develop your skills!</p>
+        <h1 className="text-3xl font-bold text-black mb-2">Program Registration</h1>
+        <p className="text-black/80">Join our basketball program and develop your skills!</p>
       </div>
 
       {submitStatus.type && (
@@ -125,11 +130,11 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Personal Information */}
-        <div className="border-b border-gray-200 pb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Personal Information</h2>
+        <div className={sectionClass}>
+          <h2 className="text-xl font-semibold text-black mb-4">Personal Information</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="firstName" className={labelClass}>
                 First Name *
               </label>
               <input
@@ -139,12 +144,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.firstName}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="lastName" className={labelClass}>
                 Last Name *
               </label>
               <input
@@ -154,12 +159,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.lastName}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className={labelClass}>
                 Email *
               </label>
               <input
@@ -169,12 +174,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="phone" className={labelClass}>
                 Phone Number *
               </label>
               <input
@@ -184,12 +189,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="dateOfBirth" className={labelClass}>
                 Date of Birth *
               </label>
               <input
@@ -199,12 +204,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.dateOfBirth}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="gender" className={labelClass}>
                 Gender *
               </label>
               <select
@@ -213,7 +218,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.gender}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 text-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               >
                 <option value="">Select Gender</option>
                 <option value="male">Male</option>
@@ -226,11 +231,11 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
         </div>
 
         {/* Address Information */}
-        <div className="border-b border-gray-200 pb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Address</h2>
+        <div className={sectionClass}>
+          <h2 className="text-xl font-semibold text-black mb-4">Address</h2>
           <div className="space-y-4">
             <div>
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="address" className={labelClass}>
                 Street Address *
               </label>
               <input
@@ -240,13 +245,13 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.address}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="city" className={labelClass}>
                   City *
                 </label>
                 <input
@@ -256,12 +261,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                   value={formData.city}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className={fieldClass}
                 />
               </div>
 
               <div>
-                <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="state" className={labelClass}>
                   State *
                 </label>
                 <input
@@ -271,12 +276,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                   value={formData.state}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className={fieldClass}
                 />
               </div>
 
               <div>
-                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="zipCode" className={labelClass}>
                   ZIP Code *
                 </label>
                 <input
@@ -286,7 +291,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                   value={formData.zipCode}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className={fieldClass}
                 />
               </div>
             </div>
@@ -294,11 +299,11 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
         </div>
 
         {/* Guardian Information (Optional) */}
-        <div className="border-b border-gray-200 pb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Guardian Information (if under 18)</h2>
+        <div className={sectionClass}>
+          <h2 className="text-xl font-semibold text-black mb-4">Guardian Information (if under 18)</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="guardianName" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="guardianName" className={labelClass}>
                 Guardian Name
               </label>
               <input
@@ -307,12 +312,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 name="guardianName"
                 value={formData.guardianName}
                 onChange={handleChange}
-                className="w-full px-4 py-2 text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="guardianPhone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="guardianPhone" className={labelClass}>
                 Guardian Phone
               </label>
               <input
@@ -321,12 +326,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 name="guardianPhone"
                 value={formData.guardianPhone}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="guardianEmail" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="guardianEmail" className={labelClass}>
                 Guardian Email
               </label>
               <input
@@ -335,18 +340,18 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 name="guardianEmail"
                 value={formData.guardianEmail}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
           </div>
         </div>
 
         {/* Emergency Contact */}
-        <div className="border-b border-gray-200 pb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Emergency Contact</h2>
+        <div className={sectionClass}>
+          <h2 className="text-xl font-semibold text-black mb-4">Emergency Contact</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="emergencyContact" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="emergencyContact" className={labelClass}>
                 Emergency Contact Name *
               </label>
               <input
@@ -356,12 +361,12 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.emergencyContact}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
 
             <div>
-              <label htmlFor="emergencyPhone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="emergencyPhone" className={labelClass}>
                 Emergency Contact Phone *
               </label>
               <input
@@ -371,13 +376,13 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.emergencyPhone}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
               />
             </div>
           </div>
 
           <div className="mt-4">
-            <label htmlFor="medicalConditions" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="medicalConditions" className={labelClass}>
               Medical Conditions or Allergies
             </label>
             <textarea
@@ -386,7 +391,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
               value={formData.medicalConditions}
               onChange={handleChange}
               rows={3}
-              className="w-full px-4 py-2  text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className={fieldClass}
               placeholder="Please list any medical conditions or allergies we should be aware of"
             />
           </div>
@@ -394,19 +399,19 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
 
         {/* Program Information */}
         <div className="pb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Program Information</h2>
+          <h2 className="text-xl font-semibold text-black mb-4">Program Information</h2>
           <div className="space-y-4">
             <div>
-              <label htmlFor="programInterest" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="programInterest" className={labelClass}>
                 Selected Age Group
               </label>
-              <div className="w-full px-4 py-3 border border-gray-300 bg-gray-50 text-gray-700 rounded-lg font-medium">
+              <div className="w-full px-4 py-3 rounded-lg font-medium text-black bg-white/40 backdrop-blur-md border border-white/60 shadow-sm">
                 {selectedAgeGroup.toUpperCase().replace(/-/g, ' ')}
               </div>
             </div>
 
             <div>
-              <label htmlFor="skills" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="skills" className={labelClass}>
                 Current Basketball Skills
               </label>
               <textarea
@@ -415,13 +420,13 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.skills}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300  text-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
                 placeholder="Tell us about your current basketball skills and abilities"
               />
             </div>
 
             <div>
-              <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="experience" className={labelClass}>
                 Previous Basketball Experience
               </label>
               <textarea
@@ -430,7 +435,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 value={formData.experience}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300 text-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className={fieldClass}
                 placeholder="Describe any previous basketball experience or training"
               />
             </div>
@@ -439,7 +444,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
 
         {/* Terms acceptance */}
         <div className="pt-4">
-          <label className="flex items-start gap-3 text-sm text-gray-700">
+          <label className="flex items-start gap-3 text-sm text-black">
             <input
               type="checkbox"
               name="termsAccepted"
