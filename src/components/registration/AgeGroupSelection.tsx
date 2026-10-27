@@ -28,7 +28,7 @@ const AgeGroupSelection: React.FC<Props> = ({ onSelectAgeGroup }) => {
             MEMBERSHIP FORM
           </h1>
           <p className="text-lg md:text-xl text-gray-800 font-medium mb-6">
-            Please select the age group from below to register your child for the 2025/26 Season.
+            Please select the age group from below to register your child for the 2026/27 Season.
           </p>
           <p className="text-sm md:text-base text-gray-600 leading-relaxed">
             Membership includes training, club kit, use of equipment, and friendly matches.
