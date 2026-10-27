@@ -11,20 +11,13 @@ const escapeHtml = (v: unknown) =>
 interface RegistrationData {
   firstName: string
   lastName: string
-  email: string
-  phone: string
   dateOfBirth: string
   gender: string
-  address: string
-  city: string
-  state: string
-  zipCode: string
+  location: string
   guardianName: string
   guardianPhone: string
   guardianEmail: string
   medicalConditions: string
-  emergencyContact: string
-  emergencyPhone: string
   programInterest: string
   skills: string
   experience: string
@@ -45,23 +38,16 @@ async function addContactToList(data: RegistrationData) {
       'api-key': apiKey,
     },
     body: JSON.stringify({
-      email: data.email,
+      email: data.guardianEmail,
       attributes: {
         FIRSTNAME: data.firstName,
         LASTNAME: data.lastName,
-        SMS: data.phone,
         DATE_OF_BIRTH: data.dateOfBirth,
         GENDER: data.gender,
-        ADDRESS: data.address,
-        CITY: data.city,
-        STATE: data.state,
-        ZIP_CODE: data.zipCode,
+        ADDRESS: data.location,
         AGE_GROUP: data.programInterest,
         GUARDIAN_NAME: data.guardianName || '',
         GUARDIAN_PHONE: data.guardianPhone || '',
-        GUARDIAN_EMAIL: data.guardianEmail || '',
-        EMERGENCY_CONTACT: data.emergencyContact,
-        EMERGENCY_PHONE: data.emergencyPhone,
         MEDICAL_CONDITIONS: data.medicalConditions || '',
         SKILLS: data.skills || '',
         EXPERIENCE: data.experience || '',
@@ -97,11 +83,9 @@ async function notifyOwner(raw: RegistrationData) {
 
       <h3 style="margin-bottom:4px">Personal Details</h3>
       <p><b>Name:</b> ${data.firstName} ${data.lastName}</p>
-      <p><b>Email:</b> ${data.email}</p>
-      <p><b>Phone:</b> ${data.phone}</p>
       <p><b>Date of Birth:</b> ${data.dateOfBirth}</p>
       <p><b>Gender:</b> ${data.gender}</p>
-      <p><b>Address:</b> ${data.address}, ${data.city}, ${data.state} ${data.zipCode}</p>
+      <p><b>Location:</b> ${data.location}</p>
 
       <hr style="margin:16px 0"/>
 
@@ -112,9 +96,8 @@ async function notifyOwner(raw: RegistrationData) {
 
       <hr style="margin:16px 0"/>
 
-      <h3 style="margin-bottom:4px">Emergency &amp; Guardian</h3>
-      <p><b>Emergency Contact:</b> ${data.emergencyContact} — ${data.emergencyPhone}</p>
-      <p><b>Guardian:</b> ${data.guardianName || 'N/A'} — ${data.guardianPhone || 'N/A'} — ${data.guardianEmail || 'N/A'}</p>
+      <h3 style="margin-bottom:4px">Guardian &amp; Medical</h3>
+      <p><b>Guardian:</b> ${data.guardianName || 'N/A'} — ${data.guardianPhone || 'N/A'} — ${data.guardianEmail}</p>
       <p><b>Medical Conditions:</b> ${data.medicalConditions || 'None reported'}</p>
     </div>
   `
@@ -129,7 +112,7 @@ async function notifyOwner(raw: RegistrationData) {
     body: JSON.stringify({
       sender: { name: 'DaggoPride Registration', email: senderEmail },
       to: [{ email: ownerEmail }],
-      replyTo: { email: raw.email, name: `${raw.firstName} ${raw.lastName}` },
+      replyTo: { email: raw.guardianEmail, name: raw.guardianName || `${raw.firstName} ${raw.lastName}` },
       subject: `New Registration: ${raw.firstName} ${raw.lastName} — ${raw.programInterest}`,
       htmlContent: html,
     }),
@@ -146,9 +129,8 @@ export async function POST(request: NextRequest) {
     const body: RegistrationData = await request.json()
 
     const required = [
-      'firstName', 'lastName', 'email', 'phone', 'dateOfBirth',
-      'gender', 'address', 'city', 'state', 'zipCode',
-      'emergencyContact', 'emergencyPhone',
+      'firstName', 'lastName', 'guardianEmail', 'dateOfBirth',
+      'gender', 'location',
     ]
     const missing = required.filter((f) => !body[f as keyof RegistrationData])
     if (missing.length) {

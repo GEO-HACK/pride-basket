@@ -16,20 +16,13 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    email: "",
-    phone: "",
     dateOfBirth: "",
     gender: "",
-    address: "",
-    city: "",
-    state: "",
-    zipCode: "",
+    location: "",
     guardianName: "",
     guardianPhone: "",
     guardianEmail: "",
     medicalConditions: "",
-    emergencyContact: "",
-    emergencyPhone: "",
     programInterest: selectedAgeGroup,
     skills: "",
     experience: "",
@@ -72,20 +65,13 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
         setFormData({
           firstName: "",
           lastName: "",
-          email: "",
-          phone: "",
-          dateOfBirth: "",
+                      dateOfBirth: "",
           gender: "",
-          address: "",
-          city: "",
-          state: "",
-          zipCode: "",
+          location: "",
           guardianName: "",
           guardianPhone: "",
           guardianEmail: "",
           medicalConditions: "",
-          emergencyContact: "",
-          emergencyPhone: "",
           programInterest: "",
           skills: "",
           experience: "",
@@ -164,36 +150,6 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
             </div>
 
             <div>
-              <label htmlFor="email" className={labelClass}>
-                Email *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className={fieldClass}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className={labelClass}>
-                Phone Number *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-                className={fieldClass}
-              />
-            </div>
-
-            <div>
               <label htmlFor="dateOfBirth" className={labelClass}>
                 Date of Birth *
               </label>
@@ -230,71 +186,23 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
           </div>
         </div>
 
-        {/* Address Information */}
+        {/* Location */}
         <div className={sectionClass}>
-          <h2 className="text-xl font-semibold text-black mb-4">Address</h2>
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="address" className={labelClass}>
-                Street Address *
-              </label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                required
-                className={fieldClass}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label htmlFor="city" className={labelClass}>
-                  City *
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  required
-                  className={fieldClass}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="state" className={labelClass}>
-                  State *
-                </label>
-                <input
-                  type="text"
-                  id="state"
-                  name="state"
-                  value={formData.state}
-                  onChange={handleChange}
-                  required
-                  className={fieldClass}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="zipCode" className={labelClass}>
-                  ZIP Code *
-                </label>
-                <input
-                  type="text"
-                  id="zipCode"
-                  name="zipCode"
-                  value={formData.zipCode}
-                  onChange={handleChange}
-                  required
-                  className={fieldClass}
-                />
-              </div>
-            </div>
+          <h2 className="text-xl font-semibold text-black mb-4">Location</h2>
+          <div>
+            <label htmlFor="location" className={labelClass}>
+              Location *
+            </label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
+              className={fieldClass}
+              placeholder="e.g. Estate / Area, Town"
+            />
           </div>
         </div>
 
@@ -332,7 +240,7 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
 
             <div>
               <label htmlFor="guardianEmail" className={labelClass}>
-                Guardian Email
+                Parent / Guardian Email *
               </label>
               <input
                 type="email"
@@ -340,48 +248,17 @@ const RegistrationForm: React.FC<Props> = ({ selectedAgeGroup }) => {
                 name="guardianEmail"
                 value={formData.guardianEmail}
                 onChange={handleChange}
+                required
                 className={fieldClass}
               />
             </div>
           </div>
         </div>
 
-        {/* Emergency Contact */}
+        {/* Medical Information */}
         <div className={sectionClass}>
-          <h2 className="text-xl font-semibold text-black mb-4">Emergency Contact</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="emergencyContact" className={labelClass}>
-                Emergency Contact Name *
-              </label>
-              <input
-                type="text"
-                id="emergencyContact"
-                name="emergencyContact"
-                value={formData.emergencyContact}
-                onChange={handleChange}
-                required
-                className={fieldClass}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="emergencyPhone" className={labelClass}>
-                Emergency Contact Phone *
-              </label>
-              <input
-                type="tel"
-                id="emergencyPhone"
-                name="emergencyPhone"
-                value={formData.emergencyPhone}
-                onChange={handleChange}
-                required
-                className={fieldClass}
-              />
-            </div>
-          </div>
-
-          <div className="mt-4">
+          <h2 className="text-xl font-semibold text-black mb-4">Medical Information</h2>
+          <div>
             <label htmlFor="medicalConditions" className={labelClass}>
               Medical Conditions or Allergies
             </label>
